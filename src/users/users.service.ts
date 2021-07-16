@@ -19,7 +19,7 @@ export class UsersService {
           email: createUserDto.email,
         })) || null;
       console.log(findEmail);
-      if (findEmail) return ResponseUserDto.factory(false, 'Email Exist');
+      if (findEmail) return ResponseUserDto.factory(true, 'Email Exist');
       const newUser = await this.usersRepository.save(createUserDto);
       return ResponseUserDto.factory(true, newUser);
     } catch (error) {
